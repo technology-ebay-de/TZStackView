@@ -59,28 +59,28 @@ class ViewController: UIViewController {
 
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.setTitle("Reset", forState: .Normal)
-        resetButton.addTarget(self, action: "reset", forControlEvents: .TouchUpInside)
+        resetButton.addTarget(self, action: #selector(ViewController.reset), forControlEvents: .TouchUpInside)
         resetButton.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
         resetButton.setContentHuggingPriority(1000, forAxis: .Horizontal)
         view.addSubview(resetButton)
 
         axisSegmentedControl = UISegmentedControl(items: ["Vertical", "Horizontal"])
         axisSegmentedControl.selectedSegmentIndex = 0
-        axisSegmentedControl.addTarget(self, action: "axisChanged:", forControlEvents: .ValueChanged)
+        axisSegmentedControl.addTarget(self, action: #selector(ViewController.axisChanged(_:)), forControlEvents: .ValueChanged)
         axisSegmentedControl.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         axisSegmentedControl.setContentHuggingPriority(1000, forAxis: .Vertical)
         axisSegmentedControl.tintColor = UIColor.lightGrayColor()
 
         alignmentSegmentedControl = UISegmentedControl(items: ["Fill", "Center", "Leading", "Top", "Trailing", "Bottom", "FirstBaseline"])
         alignmentSegmentedControl.selectedSegmentIndex = 0
-        alignmentSegmentedControl.addTarget(self, action: "alignmentChanged:", forControlEvents: .ValueChanged)
+        alignmentSegmentedControl.addTarget(self, action: #selector(ViewController.alignmentChanged(_:)), forControlEvents: .ValueChanged)
         alignmentSegmentedControl.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         alignmentSegmentedControl.setContentHuggingPriority(1000, forAxis: .Vertical)
         alignmentSegmentedControl.tintColor = UIColor.lightGrayColor()
 
         distributionSegmentedControl = UISegmentedControl(items: ["Fill", "FillEqually", "FillProportionally", "EqualSpacing", "EqualCentering"])
         distributionSegmentedControl.selectedSegmentIndex = 0
-        distributionSegmentedControl.addTarget(self, action: "distributionChanged:", forControlEvents: .ValueChanged)
+        distributionSegmentedControl.addTarget(self, action: #selector(ViewController.distributionChanged(_:)), forControlEvents: .ValueChanged)
         distributionSegmentedControl.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         distributionSegmentedControl.setContentHuggingPriority(1000, forAxis: .Vertical)
         distributionSegmentedControl.tintColor = UIColor.lightGrayColor()

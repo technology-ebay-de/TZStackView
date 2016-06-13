@@ -418,7 +418,7 @@ public class TZStackView: UIView {
                         views.append(spacerView)
                     }
                     views.append(arrangedSubview)
-                    index++
+                    index += 1
                 }
 
                 stackViewConstraints += createFillConstraints(views, constant: 0, identifier: "TZSV-distributing-edge")
@@ -642,7 +642,7 @@ public class TZStackView: UIView {
         let countDownPriority = nonHiddenViews.count > 1
         for arrangedSubview in views {
             if countDownPriority {
-                priority--
+                priority -= 1
             }
             
             if isHidden(arrangedSubview) {
