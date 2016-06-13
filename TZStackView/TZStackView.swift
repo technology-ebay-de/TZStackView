@@ -407,18 +407,14 @@ public class TZStackView: UIView {
                 stackViewConstraints += createFillConstraints(arrangedSubviews, constant: spacing, identifier: "TZSV-spacing")
             case .EqualSpacing:
                 var views = [UIView]()
-                var index = 0
-                for arrangedSubview in arrangedSubviews {
-                    if isHidden(arrangedSubview) {
-                        continue
-                    }
+                
+                for (index, arrangedSubview) in arrangedSubviews.filter({ !isHidden($0) }).enumerate() {
                     if index > 0 {
                         let spacerView = addSpacerView("TZSV-distributing")
                         distributionSpacers.append(spacerView)
                         views.append(spacerView)
                     }
                     views.append(arrangedSubview)
-                    index += 1
                 }
 
                 stackViewConstraints += createFillConstraints(views, constant: 0, identifier: "TZSV-distributing-edge")
