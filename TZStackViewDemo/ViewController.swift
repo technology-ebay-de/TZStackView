@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         let toIBButton = UIButton(type: .System)
         toIBButton.translatesAutoresizingMaskIntoConstraints = false
         toIBButton.setTitle("Storyboard Views", forState: .Normal)
-        toIBButton.addTarget(self, action: "toIB", forControlEvents: .TouchUpInside)
+        toIBButton.addTarget(self, action: #selector(ViewController.toIB), forControlEvents: .TouchUpInside)
         toIBButton.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         toIBButton.setContentHuggingPriority(1000, forAxis: .Vertical)
         view.addSubview(toIBButton)
@@ -158,7 +158,7 @@ class ViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()!
-        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: "backFromIB")
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: #selector(ViewController.backFromIB))
         
         let navController = UINavigationController(rootViewController: viewController)
         
